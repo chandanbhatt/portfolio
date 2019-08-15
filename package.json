@@ -4,12 +4,28 @@
   "description": "my portfolio",
   "main": "index.js",
   "dependencies": {
-    "node-sass": "^4.12.0"
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "webpack-dev-server": "^3.8.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "bootstrap": "^4.3.1",
+    "css-loader": "^3.2.0",
+    "jquery": "^3.4.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "popper.js": "^1.15.0",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.22.9",
+    "sass-loader": "^7.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass --watch assets/scss -o assets/css"
+    "scss": "node-sass --watch assets/scss -o assets/css",
+    "dev": "webpack-dev-server --config webpack.config.js --mode development",
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",

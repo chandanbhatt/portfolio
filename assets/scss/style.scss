@@ -1,10 +1,178 @@
+@import "./grid";
+@import "./responsive";
+
+// grid system
+$default-grid-columns: 12;
+//$default-grid-gutter: 2%;
+
+*{
+  box-sizing: border-box;
+}
 body{
-	background: red;
+  margin: 0;
 }
 
-div{
-	background:blue;
+$grid-breakpoints: (
+        all: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1600px
+);
+
+@each $key, $grid-breakpoint in $grid-breakpoints {
+  @if $grid-breakpoint == 0 {
+    .grid {
+      @include grid();
+      .grid__row {
+        @include grid-row();
+        @for $i from 1 through $default-grid-columns {
+          > .grid__col-#{$i} {
+            @include grid-col($col: $i, $grid-columns: $default-grid-columns);
+          }
+          > .grid__col-offset-#{$i} {
+            @include grid-offset($col: $i, $grid-columns: $default-grid-columns);
+          }
+        }
+      }
+    }
+  } @else {
+    @include respond-above($key) {
+      .grid {
+        @include grid($max-width: $grid-breakpoint);
+        .grid__row {
+          @include grid-row();
+          @for $i from 1 through $default-grid-columns {
+            > .grid__col-#{$key}-#{$i} {
+              @include grid-col($col: $i, $grid-columns: $default-grid-columns);
+            }
+            > .grid__col-offset-#{$key}-#{$i} {
+              @include grid-offset($col: $i, $grid-columns: $default-grid-columns);
+            }
+          }
+        }
+      }
+    }
+  }
 }
-span{
-	background: green;
+
+
+.load {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  z-index: 1;
+  .gear-box {
+    position: relative;
+    margin: 50px auto;
+    width: 100px;
+    height: 80px;
+    .gear {
+      position: absolute;
+      z-index: -10;
+      width: 40px;
+      height: 40px;
+      animation: spin 3s infinite;
+      &.two {
+        left: 40px;
+        width: 80px;
+        height: 80px;
+        animation: spin-reverse 3s infinite;
+      }
+      &.three {
+        top: 45px;
+        left: -10px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  50% {
+    transform: rotate(360deg);
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin-reverse {
+  50% {
+    transform: rotate(-360deg);
+    opacity: 0.5;
+  }
+}
+
+.hide-item {
+  display: none;
+}
+
+.show-item {
+  display: block;
+}
+
+//=====================header css===================
+
+.header_area {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px;
+    .navbar-brand__sm img{
+      max-width: 50px;
+      @include respond-above(md){
+        display: none;
+      }
+    }
+
+    .navbar-toggler{
+      background: transparent;
+      border: none;
+      outline: none;
+      margin: 0;
+      .icon-bar {
+        width: 25px;
+        height: 1px;
+        background: #232B35;
+        margin: 4px auto;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+        display: block;
+      }
+      &[data-toggle='grow']{
+
+        .icon-bar:first-of-type{
+          transform: rotate(45deg) translate(5px, 4px);
+        }
+        .icon-bar:last-of-type{
+          transform: rotate(-45deg) translate(3px, -2px);
+        }
+        .icon-bar:nth-child(2){
+          opacity: 0;
+        }
+      }
+      @include respond-above(lg){
+        display: none;
+      }
+    }
+    .navbar-menu {
+      max-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: all 0.5s ease-in-out;
+      width: 100%;
+      @include respond-above(lg){
+        max-height: 100%;
+        flex-direction: row;
+      }
+    }
+  }
 }
