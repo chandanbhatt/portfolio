@@ -530,47 +530,75 @@ body {
 .show-item {
   display: block; }
 
-.header_area .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 5px; }
-  .header_area .navbar .navbar-brand__sm img {
-    max-width: 50px; }
-    @media (min-width: 768px) {
-      .header_area .navbar .navbar-brand__sm img {
-        display: none; } }
-  .header_area .navbar .navbar-toggler {
-    background: transparent;
-    border: none;
-    outline: none;
-    margin: 0; }
-    .header_area .navbar .navbar-toggler .icon-bar {
-      width: 25px;
-      height: 1px;
-      background: #232B35;
-      margin: 4px auto;
-      transition: all 0.3s;
-      backface-visibility: hidden;
-      display: block; }
-    .header_area .navbar .navbar-toggler[data-toggle='grow'] .icon-bar:first-of-type {
-      transform: rotate(45deg) translate(5px, 4px); }
-    .header_area .navbar .navbar-toggler[data-toggle='grow'] .icon-bar:last-of-type {
-      transform: rotate(-45deg) translate(3px, -2px); }
-    .header_area .navbar .navbar-toggler[data-toggle='grow'] .icon-bar:nth-child(2) {
-      opacity: 0; }
-    @media (min-width: 992px) {
-      .header_area .navbar .navbar-toggler {
-        display: none; } }
-  .header_area .navbar .navbar-menu {
-    max-height: 0;
+.header_area {
+  box-shadow: 0 3px 19px 1px rgba(0, 0, 0, 0.75); }
+  .header_area .navbar {
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: all 0.5s ease-in-out;
-    width: 100%; }
-    @media (min-width: 992px) {
-      .header_area .navbar .navbar-menu {
-        max-height: 100%;
-        flex-direction: row; } }
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 20px; }
+    .header_area .navbar .navbar__brand-sm img {
+      max-width: 50px; }
+      @media (min-width: 992px) {
+        .header_area .navbar .navbar__brand-sm img {
+          display: none; } }
+    .header_area .navbar .navbar__toggler {
+      background: transparent;
+      border: none;
+      outline: none;
+      margin: 0; }
+      .header_area .navbar .navbar__toggler .icon-bar {
+        width: 25px;
+        height: 1px;
+        background: #232B35;
+        margin: 4px auto;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+        display: block; }
+      .header_area .navbar .navbar__toggler[data-toggle='grow'] .icon-bar:first-of-type {
+        transform: rotate(45deg) translate(6px, 4px); }
+      .header_area .navbar .navbar__toggler[data-toggle='grow'] .icon-bar:last-of-type {
+        transform: rotate(-45deg) translate(3px, -2px); }
+      .header_area .navbar .navbar__toggler[data-toggle='grow'] .icon-bar:nth-child(2) {
+        opacity: 0; }
+      @media (min-width: 992px) {
+        .header_area .navbar .navbar__toggler {
+          display: none; } }
+    .header_area .navbar .navbar__menu {
+      max-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      list-style: none; }
+      .header_area .navbar .navbar__menu .navbar__menu-item {
+        padding: 10px 5px; }
+        .header_area .navbar .navbar__menu .navbar__menu-item .navbar__menu-link {
+          color: #232B35;
+          text-decoration: none; }
+        @media (min-width: 992px) {
+          .header_area .navbar .navbar__menu .navbar__menu-item {
+            margin: 0 15px; } }
+        .header_area .navbar .navbar__menu .navbar__menu-item.navbar__brand-lg {
+          display: none; }
+          @media (min-width: 992px) {
+            .header_area .navbar .navbar__menu .navbar__menu-item.navbar__brand-lg {
+              position: relative;
+              display: block;
+              width: 80px; }
+              .header_area .navbar .navbar__menu .navbar__menu-item.navbar__brand-lg img {
+                max-width: 80px;
+                position: absolute;
+                background: #fff;
+                border-radius: 50%;
+                box-shadow: 0 3px 19px 1px rgba(0, 0, 0, 0.75); } }
+      @media (min-width: 992px) {
+        .header_area .navbar .navbar__menu {
+          max-height: 100%;
+          flex-direction: row;
+          justify-content: center;
+          overflow: visible; } }

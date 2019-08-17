@@ -77,39 +77,26 @@
     <div class="grid">
         <nav class="navbar">
 
-            <a class="navbar-brand__sm" href="index.html"><img src="assets/imgs/logo.png" alt=""></a>
+            <a class="navbar__brand-sm" href="index.html"><img src="assets/imgs/logo.png" alt="chandan bhatt"></a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
+            <button class="navbar__toggler" id="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbar-menu">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
 
-            <ul class="navbar-menu" id="#navbar-menu">
-                <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true"
-                       aria-expanded="false">Pages</a>
-                    <ul class="dropdown-menu">
-                        <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-                        <li class="nav-item"><a class="nav-link" href="portfolio-details.html">Portfolio
-                            Details</a></li>
-                    </ul>
+            <ul class="navbar__menu" id="#navbar-menu">
+                <!--<li class="navbar__menu-item active"><a class="navbar__menu-link" href="index.html">Home</a></li>-->
+                <li class="navbar__menu-item"><a class="navbar__menu-link" href="about.html">About</a></li>
+                <li class="navbar__menu-item"><a class="navbar__menu-link" href="services.html">Services</a></li>
+                <li class="navbar__menu-item navbar__brand-lg">
+                    <a class="navbar__menu-link">
+                        <img src="assets/imgs/logo.png" alt="chandan bhatt">
+                    </a>
                 </li>
-                <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-haspopup="true"
-                       aria-expanded="false">Blog</a>
-                    <ul class="dropdown-menu">
-                        <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="navbar__menu-item"><a class="navbar__menu-link" href="portfolio.html">Portfolio</a></li>
+                <li class="navbar__menu-item"><a class="navbar__menu-link" href="contact.html">Contact</a></li>
             </ul>
 
         </nav>

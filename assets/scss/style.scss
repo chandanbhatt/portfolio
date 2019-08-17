@@ -1,14 +1,16 @@
 @import "./grid";
 @import "./responsive";
+@import "./colors";
 
 // grid system
 $default-grid-columns: 12;
 //$default-grid-gutter: 2%;
 
-*{
+* {
   box-sizing: border-box;
 }
-body{
+
+body {
   margin: 0;
 }
 
@@ -56,7 +58,6 @@ $grid-breakpoints: (
     }
   }
 }
-
 
 .load {
   position: fixed;
@@ -119,20 +120,21 @@ $grid-breakpoints: (
 //=====================header css===================
 
 .header_area {
+  box-shadow: 0 3px 19px 1px rgba(0, 0, 0, 0.75);
   .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 5px;
-    .navbar-brand__sm img{
+    padding: 10px 20px;
+    .navbar__brand-sm img {
       max-width: 50px;
-      @include respond-above(md){
+      @include respond-above(lg) {
         display: none;
       }
     }
 
-    .navbar-toggler{
+    .navbar__toggler {
       background: transparent;
       border: none;
       outline: none;
@@ -140,38 +142,68 @@ $grid-breakpoints: (
       .icon-bar {
         width: 25px;
         height: 1px;
-        background: #232B35;
+        background: $primary;
         margin: 4px auto;
         transition: all 0.3s;
         backface-visibility: hidden;
         display: block;
       }
-      &[data-toggle='grow']{
+      &[data-toggle='grow'] {
 
-        .icon-bar:first-of-type{
-          transform: rotate(45deg) translate(5px, 4px);
+        .icon-bar:first-of-type {
+          transform: rotate(45deg) translate(6px, 4px);
         }
-        .icon-bar:last-of-type{
+        .icon-bar:last-of-type {
           transform: rotate(-45deg) translate(3px, -2px);
         }
-        .icon-bar:nth-child(2){
+        .icon-bar:nth-child(2) {
           opacity: 0;
         }
       }
-      @include respond-above(lg){
+      @include respond-above(lg) {
         display: none;
       }
     }
-    .navbar-menu {
+    .navbar__menu {
       max-height: 0;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      transition: all 0.5s ease-in-out;
+      transition: max-height 0.5s ease-in-out;
       width: 100%;
-      @include respond-above(lg){
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      .navbar__menu-item {
+        padding: 10px 5px;
+        .navbar__menu-link {
+          color: $primary;
+          text-decoration: none;
+        }
+        @include respond-above(lg) {
+          margin: 0 15px;
+        }
+        &.navbar__brand-lg {
+          display: none;
+          @include respond-above(lg) {
+            position: relative;
+            display: block;
+            width: 80px;
+            img {
+              max-width: 80px;
+              position: absolute;
+              background: #fff;
+              border-radius: 50%;
+              box-shadow: 0 3px 19px 1px rgba(0, 0, 0, 0.75);
+            }
+          }
+        }
+      }
+      @include respond-above(lg) {
         max-height: 100%;
         flex-direction: row;
+        justify-content: center;
+        overflow: visible;
       }
     }
   }
