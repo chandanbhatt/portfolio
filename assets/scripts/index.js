@@ -51,7 +51,7 @@ var chia = (function () {
     }
 })();
 
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('load', (event) => {
     setTimeout(() => {
         chia.stopLoadingAnimation();
     }, 1000);
